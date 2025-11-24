@@ -1,0 +1,6 @@
+@app.get("/taxonomy")
+def taxonomy_endpoint(lang: str = Query("fr", regex="^(fr|es|ln)$")):
+    return {
+        "lang": lang,
+        "taxonomy": get_taxonomy(lang)
+    }
