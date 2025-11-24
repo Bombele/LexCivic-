@@ -1,0 +1,33 @@
+- category: Abus institutionnels
+  code: INST
+  subcategories:
+    - name: Corruption
+      code: COR-001
+      languages:
+        fr: Corruption
+        es: Corrupción
+        ln: Kofinga mbongo
+    - name: Abus de pouvoir
+      code: POW-002
+      languages:
+        fr: Abus de pouvoir
+        es: Abuso de poder
+        ln: Kosalelaka makasi na botosi te
+    - name: Discrimination judiciaire
+      code: DIS-003
+      languages:
+        fr: Discrimination judiciaire
+        es: Discriminación judicial
+        ln: Diskriminasyon ya bosambisi
+    - name: Retards procéduraux
+      code: DEL-004
+      languages:
+        fr: Retards procéduraux
+        es: Demoras procesales
+        ln: Nkɔkɔ ya procédure
+    - name: Négligence médicale
+      code: MED-005
+      languages:
+        fr: Négligence médicale
+        es: Negligencia médica
+        ln: Koboya kosalela nsango ya santé
