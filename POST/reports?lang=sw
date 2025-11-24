@@ -1,0 +1,6 @@
+POST /reports?lang=sw
+{
+  "texto": "Afisa alikataa kutoa huduma za afya",
+  "tipo_abuso": "medical_neglect",
+  "idioma": "sw"
+}
