@@ -1,0 +1,6 @@
+POST /reports?lang=en
+{
+  "texto": "The official demanded money to process the case",
+  "tipo_abuso": "extortion",
+  "idioma": "en"
+}
