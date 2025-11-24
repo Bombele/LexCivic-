@@ -1,0 +1,9 @@
+POST /reports?lang=fr
+Content-Type: application/json
+
+{
+  "texto": "Le juge a retardé le procès sans justification",
+  "tipo_abuso": "procedural_delay",
+  "idioma": "fr",
+  "source": "web"
+}
