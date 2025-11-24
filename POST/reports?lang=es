@@ -1,0 +1,6 @@
+POST /reports?lang=es
+{
+  "texto": "El funcionario me pidió dinero para procesar mi caso",
+  "tipo_abuso": "extortion",
+  "idioma": "es"
+}
