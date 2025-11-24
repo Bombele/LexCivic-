@@ -66,3 +66,52 @@ def stats_export(lang: str = Query(DEFAULT_LANG, regex="^(fr|es|en|sw|ln)$"), db
     for r in rows:
         writer.writerow([r.id, r.texto, r.tipo_abuso, abuse_types[lang].get(r.tipo_abuso, ""), r.idioma, r.created_at.isoformat()])
     return {"lang": lang, "csv": buffer.getvalue()}
+# app/main.py (suite)
+from pydantic import BaseModel
+from .ai import classify_question
+from .abuse_types import abuse_types
+
+class Consulta(BaseModel):
+    user: str
+    question: str
+    lang: str = DEFAULT_LANG
+
+@app.post("/consultation")
+def consultation(data: Consulta):
+    lang = data.lang if data.lang in abuse_types else DEFAULT_LANG
+    label, score = classify_question(data.question)
+
+    if label and label in abuse_types[lang]:
+        return {
+            "message": T(lang, "success"),
+            "interpretation": f"{abuse_types[lang][label]}",
+            "confidence": f"{score:.2f}",
+            "suggestion": f"Créer une dénonciation avec le code '{label}' via /reports",
+            "disclaimer": "Cette consultation est informative et ne remplace pas un avocat."
+        }
+
+    # Fallback simple par recherche de sous-chaînes
+    q = data.question.lower()
+    detected = None
+    for code, label_local in abuse_types[lang].items():
+        if label_local.lower() in q:
+            detected = (code, label_local)
+            break
+
+    if detected:
+        code, label_local = detected
+        return {
+            "message": T(lang, "success"),
+            "interpretation": label_local,
+            "confidence": "0.50",
+            "suggestion": f"Créer une dénonciation avec le code '{code}' via /reports",
+            "disclaimer": "Cette consultation est informative et ne remplace pas un avocat."
+        }
+
+    return {
+        "message": T(lang, "success"),
+        "interpretation": "Question générale",
+        "confidence": "0.00",
+        "suggestion": "Consulter /abuse-types ou /stats",
+        "disclaimer": "Cette consultation est informative et ne remplace pas un avocat."
+    }
