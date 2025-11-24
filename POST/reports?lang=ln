@@ -1,0 +1,6 @@
+POST /reports?lang=ln
+{
+  "texto": "Bakonzi basɛngi mbongo mpo na kosala bosambisi",
+  "tipo_abuso": "extortion",
+  "idioma": "ln"
+}
