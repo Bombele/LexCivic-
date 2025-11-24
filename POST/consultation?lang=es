@@ -1,0 +1,8 @@
+POST /consultation?lang=es
+Content-Type: application/json
+
+{
+  "user": "Camille",
+  "question": "El funcionario me pidió dinero para procesar mi caso",
+  "lang": "es"
+}
