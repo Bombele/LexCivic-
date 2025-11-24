@@ -1,0 +1,35 @@
+@app.get("/stats/export")
+def stats_export(lang: str = Query(DEFAULT_LANG, regex="^(fr|es|en|sw|ln)$"), db: Session = Depends(get_db)):
+    import csv, io
+    
+    # Définition des en-têtes multilingues
+    headers = {
+        "fr": ["ID", "Texte", "Code interne", "Libellé", "Langue", "Créé le"],
+        "es": ["ID", "Texto", "Código interno", "Etiqueta", "Idioma", "Creado el"],
+        "en": ["ID", "Text", "Internal code", "Label", "Language", "Created at"],
+        "sw": ["ID", "Maandishi", "Msimbo wa ndani", "Lebo", "Lugha", "Imeundwa"],
+        "ln": ["ID", "Mikanda", "Kodi ya kati", "Libelé", "Lokota", "Tango ya kosala"],
+    }
+    
+    rows = db.query(Report).all()
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    
+    # Écrire les en-têtes selon la langue
+    writer.writerow(headers.get(lang, headers[DEFAULT_LANG]))
+    
+    # Écrire les données
+    for r in rows:
+        writer.writerow([
+            r.id,
+            r.texto,
+            r.tipo_abuso,
+            abuse_types[lang].get(r.tipo_abuso, abuse_types[lang]["other_abuses"]),
+            r.idioma,
+            r.created_at.isoformat()
+        ])
+    
+    return {
+        "lang": lang,
+        "csv": buffer.getvalue()
+    }
