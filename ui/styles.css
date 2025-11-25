@@ -1,0 +1,35 @@
+/* styles.css */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #22c55e;
+  --outline: #f59e0b;
+  --danger: #ef4444;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #0b1220; border-bottom: 1px solid #1f2937; }
+.brand { font-weight: 700; letter-spacing: 0.5px; }
+.lang-switch .lang { margin-left: 6px; padding: 6px 10px; background: transparent; border: 1px solid #334155; color: var(--text); cursor: pointer; }
+.lang-switch .lang.active { border-color: var(--primary); color: var(--primary); }
+.hero { padding: 24px; text-align: center; }
+.hero h1 { font-size: 1.3rem; margin: 0 0 8px; }
+.hero p { color: var(--muted); margin: 0 0 16px; }
+.cta { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.btn { background: var(--primary); color: #052e14; border: none; padding: 10px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+.btn-outline { background: transparent; color: var(--outline); border: 1px solid var(--outline); }
+.card { max-width: 720px; margin: 16px auto; background: var(--card); padding: 16px; border-radius: 10px; border: 1px solid #1f2937; }
+label { display: block; margin: 10px 0 6px; }
+input, select, textarea { width: 100%; padding: 10px; background: #0b1220; color: var(--text); border: 1px solid #334155; border-radius: 6px; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); }
+.form-actions { margin-top: 12px; }
+.status { margin-top: 10px; color: var(--muted); }
+.footer { text-align: center; padding: 16px; color: var(--muted); }
+.filters { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 8px; }
+.timeline { list-style: none; padding: 0; margin: 16px 0 0; }
+.timeline li { padding: 12px; border-left: 3px solid var(--primary); margin: 10px 0; background: #0b1220; border-radius: 6px; }
+@media (max-width: 640px) {
+  .filters { grid-template-columns: 1fr; }
+}
