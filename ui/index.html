@@ -1,0 +1,64 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LexCivic — Justice citoyenne</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">LexCivic</div>
+    <nav class="lang-switch" aria-label="Sélecteur de langue">
+      <button data-lang="fr" class="lang active">FR</button>
+      <button data-lang="es" class="lang">ES</button>
+      <button data-lang="ln" class="lang">LN</button>
+    </nav>
+  </header>
+
+  <main id="home" role="main">
+    <section class="hero">
+      <h1 data-i18n="mission_title">Documenter, classifier, mémoriser les abus pour la justice citoyenne.</h1>
+      <p data-i18n="mission_desc">Interface sobre, multilingue et auditable pour la légitimité collective.</p>
+      <div class="cta">
+        <a href="#declare" class="btn" data-i18n="btn_declare">Déclarer un abus</a>
+        <a href="timeline.html" class="btn btn-outline" data-i18n="btn_memory">Consulter la mémoire</a>
+        <a href="charte.html" class="btn btn-outline" data-i18n="btn_charter">Accéder à la charte</a>
+      </div>
+    </section>
+
+    <section id="declare" class="card" aria-labelledby="declare-title">
+      <h2 id="declare-title" data-i18n="declare_title">Déclaration d’un abus</h2>
+      <form id="report-form" novalidate>
+        <label for="tipo_abuso" data-i18n="field_type">Type d’abus</label>
+        <select id="tipo_abuso" name="tipo_abuso" required aria-required="true"></select>
+
+        <label for="lieu" data-i18n="field_place">Lieu</label>
+        <input id="lieu" name="lieu" type="text" required aria-required="true" />
+
+        <label for="date" data-i18n="field_date">Date</label>
+        <input id="date" name="date" type="date" required aria-required="true" />
+
+        <label for="desc" data-i18n="field_desc">Description</label>
+        <textarea id="desc" name="texto" rows="4" required aria-required="true"></textarea>
+
+        <label for="file" data-i18n="field_file">Preuve (optionnel)</label>
+        <input id="file" name="file" type="file" accept=".pdf,.png,.jpg,.jpeg" />
+
+        <div class="form-actions">
+          <button type="submit" class="btn" data-i18n="btn_submit">Envoyer</button>
+        </div>
+        <p id="form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>&copy; LexCivic — <span data-i18n="footer_rights">Mémoire citoyenne et justice digitale</span></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
