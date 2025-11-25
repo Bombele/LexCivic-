@@ -98,3 +98,55 @@ La mémoire active du projet est documentée dans la carpeta `bitacora/`.
 
 Cette plateforme est informative et citoyenne.  
 Elle ne remplace pas l’assistance juridique professionnelle.
+# LexCivic — Interface citoyenne multilingue
+
+LexCivic traduit la justice digitale en une **expérience citoyenne sobre, mobile-first et auditable**.  
+UI construite en **HTML/CSS/JS** et intégrée à l’API **FastAPI**.
+
+---
+
+## 🎯 Objectifs UI
+
+- Accessibilité universelle, confiance visuelle, multilinguisme fluide (FR/ES/LN).
+- Déclaration simple d’abus, mémoire institutionnelle, charte citoyenne.
+
+---
+
+## 📦 Structure
+
+- `index.html` — Accueil + formulaire de déclaration.
+- `charte.html` — Charte citoyenne et gouvernance.
+- `timeline.html` — Mémoire institutionnelle (timeline).
+- `styles.css` — Design minimaliste et accessible.
+- `i18n.js` — Dictionnaire de traductions FR/ES/LN.
+- `app.js` — Logique UI et intégration API.
+
+---
+
+## 🔌 Intégration API
+
+- `/abuse-types` pour alimenter les sélecteurs.
+- `/reports` pour enregistrer les dénonciations.
+- `/stats` pour alimenter la mémoire et les filtres.
+
+Configurer `API.base` dans `app.js` (ex: `https://api.lexcivic.org`).
+
+---
+
+## 🚀 Démarrage
+
+Servir les fichiers statiques (ex: `python -m http.server`) ou via un hébergeur statique.  
+Connecter à l’API FastAPI déployée (Render/Railway).
+
+---
+
+## ♿ Accessibilité
+
+Contraste élevé, navigation clavier, aria-labels, focus visible, mobile-first.
+
+---
+
+## ⚖️ Disclaimer
+
+L’UI est informative et citoyenne.  
+Elle ne remplace pas l’assistance juridique professionnelle.
