@@ -150,3 +150,20 @@ Contraste élevé, navigation clavier, aria-labels, focus visible, mobile-first.
 
 L’UI est informative et citoyenne.  
 Elle ne remplace pas l’assistance juridique professionnelle.
+## 🚀 Déploiement
+
+LexCivic est déployé en deux couches :
+
+- **Backend (FastAPI)** → endpoints `/reports`, `/stats`, `/consultation`, etc.
+- **Frontend (UI statique)** → pages HTML/CSS/JS (`ui/`).
+
+### Option 1 : Déploiement séparé
+- Backend sur Render/Railway (service API).
+- Frontend sur Render/Railway (site statique).
+
+### Option 2 : Déploiement combiné
+- Docker multi‑service avec Nginx servant l’UI et proxy vers FastAPI.
+
+### CI/CD
+- GitHub Actions pour build/test.
+- Déploiement automatique sur push.
