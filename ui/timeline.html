@@ -1,0 +1,34 @@
+<!-- timeline.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LexCivic — Mémoire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">LexCivic</div>
+    <a class="btn btn-outline" href="index.html" data-i18n="btn_home">Accueil</a>
+  </header>
+
+  <main class="card">
+    <h1 data-i18n="memory_title">Mémoire institutionnelle</h1>
+    <div id="filters" class="filters">
+      <select id="filter-type"></select>
+      <input id="filter-country" type="text" placeholder="Pays" />
+      <input id="filter-date" type="month" />
+      <button class="btn" id="apply-filters" data-i18n="btn_filter">Filtrer</button>
+    </div>
+    <ul id="timeline" class="timeline" aria-live="polite"></ul>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; LexCivic</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+    </html>
