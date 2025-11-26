@@ -182,3 +182,48 @@ LexCivic implémente une **auditabilité intégrée** :
 - `POST /audit/classify` — journalise une décision de classification (juriste/ONG).
 
 Ces mécanismes renforcent la **confiance**, la **transparence** et l’**audibilité**.
+# ITCAA – Interface citoyenne et certification DIH
+
+## 🌍 Présentation
+ITCAA (Institut Transnational de Certification et d’Architecture d’Appui) est une initiative citoyenne et institutionnelle fondée par **Camille Bombele Liyama** (homme, fondateur et développeur principal).  
+Le projet vise à offrir une **justice digitale**, une **certification en droit international humanitaire (DIH)** et une **mémoire institutionnelle** pour la diaspora et les partenaires internationaux.
+
+---
+
+## 🚀 Objectifs
+- **Certification DIH** : offrir une base technique et institutionnelle pour la reconnaissance des acteurs.
+- **Mémoire citoyenne** : documenter chaque jalon technique comme acte de résilience et d’empowerment.
+- **Multilinguisme stratégique** : interface et rapports disponibles en plusieurs langues.
+- **Cartographie interactive** : visualiser les acteurs, partenaires et risques institutionnels.
+- **Auditabilité** : garantir la transparence et la légitimité des systèmes.
+
+---
+
+## 🧑‍💻 Développeur principal
+- **Camille Bombele Liyama**  
+  - Fondateur et architecte institutionnel  
+  - Développeur principal (FastAPI, SQLAlchemy, CI/CD, multilinguisme, i18n)  
+  - Porteur du projet **LexCivic** et responsable de la légitimation institutionnelle  
+
+---
+
+## ⚙️ Stack technique
+- **Backend** : FastAPI + Uvicorn
+- **Base de données** : PostgreSQL (Render Cloud)
+- **ORM** : SQLAlchemy
+- **Validation** : Pydantic
+- **Multilinguisme** : i18n avec YAML
+- **Cartographie** : Leaflet JS
+- **CI/CD** : GitHub Actions + Render
+- **Tests** : Pytest + HTTPX
+
+---
+
+## 📦 Installation locale
+
+```bash
+git clone https://github.com/ton-org/ITCAA.git
+cd ITCAA
+pip install -r requirements.txt
+export DATABASE_URL="postgresql://user:password@localhost:5432/itcaa"
+PYTHONPATH=src python -m uvicorn apps.api.main:app --reload
