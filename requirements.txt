@@ -7,3 +7,9 @@ transformers
 torch
 spacy
 python-multipart
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+python-multipart
+PyYAML
