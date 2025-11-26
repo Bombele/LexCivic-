@@ -167,3 +167,18 @@ LexCivic est déployé en deux couches :
 ### CI/CD
 - GitHub Actions pour build/test.
 - Déploiement automatique sur push.
+## 🔍 Auditabilité automatique
+
+LexCivic implémente une **auditabilité intégrée** :
+- Modèles Pydantic stricts pour valider les données citoyennes.
+- Logger JSON standardisé pour chaque action (déclaration, classification, export).
+- Export des logs en **JSON** et **YAML** pour audit externe.
+- Schéma de gouvernance simple (automatic, collaborative, institutional).
+
+### Endpoints d’audit
+- `POST /reports/audited` — crée une déclaration et journalise l’événement (Pydantic + audit).
+- `GET /audit/logs?format=json|yaml` — exporte les logs pour audit externe.
+- `GET /audit/governance` — expose le schéma de gouvernance.
+- `POST /audit/classify` — journalise une décision de classification (juriste/ONG).
+
+Ces mécanismes renforcent la **confiance**, la **transparence** et l’**audibilité**.
